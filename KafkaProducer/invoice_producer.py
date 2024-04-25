@@ -9,7 +9,7 @@ class InvoiceProducer:
                      'security.protocol': 'SASL_SSL',
                      'sasl.mechanism': 'PLAIN',
                      'sasl.username': 'OJ52GHVCYGEETXHI',
-                     'sasl.password': 'iA0WT8bwzz8ghK3vHbml6yWtx7e/53YQQ9+hDCcatbH9MUc7LkWpQDeKWnY1QO/s',
+                     'sasl.password': '###',
                      'client.id': 'ashvani-laptop'}
 
     def delivery_callback(self, err, msg):
