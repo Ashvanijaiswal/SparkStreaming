@@ -36,7 +36,7 @@ class KafkaProducer():
     def readInvoices(self, condition):
         from pyspark.sql.functions import expr
         spark=self.createSparkSession()
-        return (spark.read.format("json").schema(self.getSchema()).
+        return (spark.readStream.format("json").schema(self.getSchema()).
                  load("data/invoices.json"))
 
     def getKafkaMessage(selfself, df, key):
@@ -61,3 +61,6 @@ class KafkaProducer():
         print("Done")
         return sQuery
 
+if __name__=='__main__':
+    ob=KafkaProducer()
+    ob.process("abc")
