@@ -9,7 +9,7 @@ class InvoiceProducer:
                      'security.protocol': 'SASL_SSL',
                      'sasl.mechanism': 'PLAIN',
                      'sasl.username': 'OJ52GHVCYGEETXHI',
-                     'sasl.password': '###',
+                     'sasl.password': 'iA0WT8bwzz8ghK3vHbml6yWtx7e/53YQQ9+hDCcatbH9MUc7LkWpQDeKWnY1QO/s',
                      'client.id': 'ashvani-laptop'}
 
     def delivery_callback(self, err, msg):
@@ -36,7 +36,7 @@ class InvoiceProducer:
 
     def start(self):
         kafka_producer = Producer(self.conf)
-        self.produce_invoices(kafka_producer, 100)
+        self.produce_invoices(kafka_producer, 10)
         kafka_producer.flush(10)
 
 

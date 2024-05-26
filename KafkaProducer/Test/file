@@ -1,0 +1,113 @@
+sql
+
+Compute the 7-day moving average of daily sales amounts. Display the date and the corresponding moving average for each day.
+
+Date         | Daily Sales Amount
+---------------------------------
+2023-11-20   | $150 , 0 150
+2023-11-21   | $200 , 0 150+200 = 350
+2023-11-22   | $180    150+200+180 = 530
+2023-11-23   | $250     150+200+180+250  - 780 ----- lag(3) [150] = 630
+2023-11-24   | $300
+2023-11-25   | $280 , 0
+2023-11-26   | $320 , abc
+2023-11-27   | $270 , xyz
+2023-11-28   | $310
+2023-11-29   | $330
+2023-11-30   | $350
+2023-12-01   | $380
+2023-12-02   | $400
+2023-12-03   | $420
+
+To compute the 7-day moving average, you'd start from the 7th day (since you need at least 7 days for the calculation) and calculate the average for each subsequent day. For instance:
+
+For 2023-11-26, the 7-day moving average would be the average of sales amounts from 2023-11-20 to 2023-11-26.
+For 2023-11-27, the 7-day moving average would be the average of sales amounts from 2023-11-21 to 2023-11-27.
+And so on.
+
+Date, amt, lastWeekData
+select date, avg(amt) from table where
+
+-------------------
+++++++++++++++++++++++++
+
+Implement the Word Count program using Spark RDD operations. Read a text file ('text.txt') and output the count of each word in the file.
+import pyspark.sql import SparkSession
+
+spark=Spark.builder.master().appName("").createOrBuild()
+rdd=spark.readTextFile('text.txt')
+grpObj=rdd.flatMap(x=>x.split('|')).map(x=>(x,1)).reduceByKey(_ + _)
+grpObj.map(x=> println(x))
+
+
+#Implement | the  | Word  | Count program using Spark RDD operations
+
+Ashvani
+Kotak
+Ashavni
+
+(Ashvani, 2)
+(Kotak,1)
+++++++++++++++++++++++++
+
+What factors would you consider when designing the data extraction stage of an ETL pipeline? Discuss the importance of selecting appropriate extraction methods and handling incremental loads.
+1) Volume of data
+2) Type of source (fileSystem, DB, s=cloud)
+3) real time or batch
+4) type of data(csv, xml, json)
+6) latency
+7) multiple souces
+8)
++++++++++++++++++++++++++++++++++++++++
+
+Customer Segmentation and Analysis:
+
+
+Use Case:
+
+Design a data model for a customer segmentation and analysis system. The company wants to segment customers based on various factors such as purchasing behavior, demographics, and engagement. Analytical reports are needed to understand customer trends.
+
+Requirements:
+
+Include tables for customers, transactions, demographics, and segments.
+
+Consider necessary columns for each table.
+
+Write a SQL query to retrieve the count of customers in each segment.
+
+
+
+Customer:
+cust_id, cst_nm, addr,
+
+transaction:
+cust_id, tansaction_id, product_name, amt, amt_date
+
+demographics:
+compy_id, companyName, trans_id, trans_loc, city, country, pincode
+
+segments:
+seg_id,cust_id, avg_order_val, customer_type
+
+rich , avg_order_value >1000
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+spark=Spark.builder.master().appName("").createOrBuild()
+rdd=spark.readTextFile('text.txt')
+grpObj=rdd.flatMap(x=>x.split('|')).map(x=>(x,1)).reduceByKey(_ + _)
+grpObj.map(x=> println(x))
+
+stages:1,2,3,4 >>> wide transformatio [shuffle] : 1 + 1
+jobs:1 >>> action + read_file [infer sceham =true]
+tasks:based on partition [file] + shuffle partition [in memory] + parrel executors cores...
+
+
+
+self.conf = {
+            "kafka.sasl.jaas.config": 'org.apache.kafka.common.security.plain.PlainLoginModule required username="OJ52GHVCYGEETXHI" password="iA0WT8bwzz8ghK3vHbml6yWtx7e/53YQQ9+hDCcatbH9MUc7LkWpQDeKWnY1QO/s";',
+            "kafka.sasl.mechanism": "PLAIN",
+            "kafka.security.protocol" : "SASL_SSL",
+            "kafka.bootstrap.servers": 'pkc-12576z.us-west2.gcp.confluent.cloud:9092',
+            "subscribe": 'invoices',
+            }
+
+spark-submit --master local[1] --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.1 --conf spark.executor.instances=10 --name example_job kafka_consumer.py
