@@ -1,0 +1,40 @@
+{
+   "InvoiceNumber":"4888607",
+   "CreatedTime":1595688903258,
+   "StoreID":"STR2629",
+   "PosID":"POS172",
+   "CashierID":"OAS622",
+   "CustomerType":"NONPRIME",
+   "CustomerCardNo":"7829975914",
+   "TotalAmount":1750.0,
+   "NumberOfItems":2,
+   "PaymentMethod":"CASH",
+   "TaxableAmount":1750.0,
+   "CGST":43.75,
+   "SGST":43.75,
+   "CESS":2.1875,
+   "DeliveryType":"HOME-DELIVERY",
+   "DeliveryAddress":{
+      "AddressLine":"7114 Eu, Rd.",
+      "City":"Ratlam",
+      "State":"Madhya Pradesh",
+      "PinCode":"925281",
+      "ContactNumber":"4057182350"
+   },
+   "InvoiceLineItems":[
+      {
+         "ItemCode":"208",
+         "ItemDescription":"Canopy bed",
+         "ItemPrice":508.0,
+         "ItemQty":1,
+         "TotalValue":508.0
+      },
+      {
+         "ItemCode":"408",
+         "ItemDescription":"Confidante",
+         "ItemPrice":1242.0,
+         "ItemQty":1,
+         "TotalValue":1242.0
+      }
+   ]
+}
